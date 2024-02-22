@@ -14,10 +14,12 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonReader;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.Registry;
+import dev.sefiraat.cultivation.api.datatypes.FloraLevelProfileDataType;
 import dev.sefiraat.cultivation.api.datatypes.SeedPackDataType;
 import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.datatypes.instances.SeedPackInstance;
 import dev.sefiraat.cultivation.api.slimefun.items.trees.TreeBlockDescriptor;
+import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.SeedPack;
 import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import dev.sefiraat.sefilib.string.Theme;
@@ -44,6 +46,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -276,5 +279,48 @@ public class CultivationCommands extends BaseCommand {
             }
         }
     }
+
+    @Subcommand("giveplant")
+    @CommandPermission("cultivation.admin.giveplant")
+    public void givePlant(CommandSender sender, String plantName, int level) {
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage(Theme.applyThemeToString(Theme.WARNING, "This command can only be executed by a player"));
+            return;
+        }
+
+        if (level < 1 || level > 10) {
+            player.sendMessage(Theme.applyThemeToString(Theme.ERROR, "Level must be between 1 and 10"));
+            return;
+        }
+
+        ItemStack plantItem = createPlantItem(plantName, level);
+
+        if (plantItem == null) {
+            player.sendMessage(Theme.applyThemeToString(Theme.ERROR, "Unknown plant specified"));
+            return;
+        }
+
+        player.getInventory().addItem(plantItem);
+        player.sendMessage(Theme.applyThemeToString(Theme.SUCCESS, "Successfully given plant " + plantName + " with level " + level));
+    }
+
+    private ItemStack createPlantItem(String plantConstantName, int level) {
+        try {
+            Field field = CultivationStacks.class.getDeclaredField(plantConstantName);
+            field.setAccessible(true);
+            ItemStack basePlantItem = (ItemStack) field.get(null);
+
+            ItemStack plantItem = basePlantItem.clone();
+            ItemMeta itemMeta = plantItem.getItemMeta();
+            FloraLevelProfile profile = new FloraLevelProfile(level, level, level, true);
+            PersistentDataAPI.set(itemMeta, FloraLevelProfileDataType.KEY, FloraLevelProfileDataType.TYPE, profile);
+            plantItem.setItemMeta(itemMeta);
+            return plantItem;
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            /*e.printStackTrace();*/
+            return null;
+        }
+    }
+
 }
 

@@ -157,6 +157,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
         ItemStack itemToDrop = getDroppedItemStack(location);
         removeCropped(location);
         removePlant(location);
+        event.getBlock().setType(Material.AIR);
         location.getWorld().dropItem(location.clone().add(0.5, 0.5, 0.5), itemToDrop);
         removeLevelProfile(location);
         event.setDropItems(false);
@@ -268,7 +269,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
      * Can have multiple pairs resulting in the same child.
      *
      * @param mother       The ID of the potential Mother
-     * @param father       The ID of the potential Mother
+     * @param father       The ID of the potential Father
      * @param breedChance  The chance for the breed to return this plant
      * @param spreadChance The chance that the Mother will spread
      * @return Returns self

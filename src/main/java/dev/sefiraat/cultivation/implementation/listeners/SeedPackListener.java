@@ -14,12 +14,22 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
 
 public class SeedPackListener implements Listener {
+
+    @EventHandler
+    public void onDrop(PlayerDropItemEvent event) {
+        ItemStack itemStack = event.getItemDrop().getItemStack();
+        SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
+        if (slimefunItem instanceof SeedPack) {
+            event.setCancelled(true);
+        }
+    }
 
     @EventHandler
     public void onPickupItem(@Nonnull EntityPickupItemEvent event) {
@@ -38,6 +48,10 @@ public class SeedPackListener implements Listener {
         for (ItemStack content : player.getInventory().getContents()) {
             SlimefunItem packItem = SlimefunItem.getByItem(content);
             if (packItem instanceof SeedPack) {
+                int packStack = content.getAmount();
+                if (packStack != 1) {
+                    return;
+                }
                 ItemMeta contentMeta = content.getItemMeta();
                 SeedPackInstance instance = PersistentDataAPI.get(
                     contentMeta,
@@ -70,5 +84,4 @@ public class SeedPackListener implements Listener {
             }
         }
     }
-
 }

@@ -31,6 +31,8 @@ public class TraderListener implements Listener {
             List<MerchantRecipe> recipes = new ArrayList<>(trader.getRecipes());
             addBreedingRecipe(recipes);
             addBushRecipe(recipes);
+            addTreeRecipe(recipes);
+            addByProductRecipe(recipes);
             trader.setRecipes(recipes);
         }
     }

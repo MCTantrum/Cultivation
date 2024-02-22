@@ -1,5 +1,6 @@
 package dev.sefiraat.cultivation.implementation.slimefun.tools;
 
+import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.datatypes.SeedPackDataType;
 import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.datatypes.instances.SeedPackInstance;
@@ -9,8 +10,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
-import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
@@ -18,10 +17,11 @@ import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
-import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -37,6 +37,7 @@ public class SeedPack extends SlimefunItem {
     @Override
     public void preRegister() {
         addItemHandler(onRightClick());
+
     }
 
     @NotNull
@@ -45,13 +46,34 @@ public class SeedPack extends SlimefunItem {
             playerRightClickEvent.cancel();
             ItemStack itemStack = playerRightClickEvent.getItem();
             Player player = playerRightClickEvent.getPlayer();
+
             if (itemStack.getAmount() > 1) {
                 player.sendMessage(Theme.ERROR.apply("You must unstack your pack(s) first."));
                 return;
             }
+
+            if (!hasCustomData(itemStack)) {
+                setCustomData(itemStack);
+            }
+
+
             SeedPackGui gui = new SeedPackGui(itemStack);
             gui.open(player);
         };
+    }
+
+    private boolean hasCustomData(ItemStack itemStack) {
+        return itemStack.getItemMeta() != null && itemStack.getItemMeta().getPersistentDataContainer().has(new NamespacedKey(
+            Cultivation.getInstance(), "custom_data"), PersistentDataType.BYTE);
+    }
+
+    private void setCustomData(ItemStack itemStack) {
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            byte randomByte = (byte) (Math.random() * 128000);
+            itemMeta.getPersistentDataContainer().set(new NamespacedKey(Cultivation.getInstance(), "custom_data"), PersistentDataType.BYTE, randomByte);
+            itemStack.setItemMeta(itemMeta);
+        }
     }
 
     public class SeedPackGui extends ChestMenu {

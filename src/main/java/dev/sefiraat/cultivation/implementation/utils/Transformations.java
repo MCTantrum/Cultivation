@@ -128,6 +128,46 @@ public enum Transformations {
     BOILING_POT(new TransformationBuilder()
                   .scale(0.3f, 0.3f, 0.3f)
                   .build()
+    ),
+    /**
+     *      MCT Specific
+     */
+    ULTRA_CLOCHE_BASE(new TransformationBuilder()
+                    .scale(0.5f, 0.5f, 0.5f)
+                    .build()
+    ),
+    ULTRA_CLOCHE_GLASS(new TransformationBuilder()
+                     .scale(0.5f, 0.5f, 0.5f)
+                     .build()
+    ),
+    ULTRA_CLOCHE_DIRT(new TransformationBuilder()
+                    .scale(0.4f, 0.4f, 0.4f)
+                    .build()
+    ),
+    BONSAI_POT_BASE(new TransformationBuilder()
+                        .scale(1.0f, 0.2f, 1.0f)
+                        .build()
+    ),
+    BONSAI_POT_DIRT(new TransformationBuilder()
+                        .scale(0.8f, 0.05f, 0.8f)
+                        .build()
+    ),
+    BONSAI_POT_FERTILIZED_DIRT(new TransformationBuilder()
+                        .scale(0.8f, 0.05f, 0.8f)
+                        .build()
+    ),
+    BONSAI_POT_SUPER_DIRT(new TransformationBuilder()
+                                   .scale(0.8f, 0.05f, 0.8f)
+                                   .build()
+    ),
+    BONSAI_POT_TREE(new TransformationBuilder()
+                        .scale(0.7f, 0.7f, 0.7f)
+                        .build()
+    ),
+    BONSAI_POT_TREE_TURNED(new TransformationBuilder()
+                               .firstRotation(RotationFace.TOP, 90)
+                               .scale(0.7f, 0.7f, 0.7f)
+                               .build()
     );
 
     private final Transformation transformation;

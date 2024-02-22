@@ -3,13 +3,16 @@ package dev.sefiraat.cultivation.implementation.slimefun.items;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
+import dev.sefiraat.cultivation.implementation.slimefun.machines.BonsaiPot;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.CraftingKitchenMachine;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.DoNothingKitchenObject;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.GardenCloche;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.PoweredKitchenMachineComplex;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.PoweredKitchenMachineSimple;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.RightClickKitchenMachine;
+import dev.sefiraat.cultivation.implementation.slimefun.machines.UltraCloche;
 import dev.sefiraat.cultivation.implementation.utils.DisplayGroupGenerators;
+import io.github.bakedlibs.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
@@ -29,6 +32,28 @@ public final class Machines {
             null, SlimefunItems.HARDENED_GLASS, null,
             null, SlimefunItems.CROP_GROWTH_ACCELERATOR, null,
             null, SlimefunItems.GOLD_24K_BLOCK, null
+        }
+    );
+
+    public static final UltraCloche ULTRA_CLOCHE = new UltraCloche(
+        CultivationGroups.MACHINES,
+        CultivationStacks.ULTRA_CLOCHE,
+        RecipeType.ENHANCED_CRAFTING_TABLE,
+        new ItemStack[]{
+            new CustomItemStack(CultivationStacks.GARDEN_CLOCHE), new CustomItemStack(CultivationStacks.PLANT_ANALYSER), new CustomItemStack(CultivationStacks.GARDEN_CLOCHE),
+            new CustomItemStack(CultivationStacks.GARDEN_CLOCHE), SlimefunItems.CROP_GROWTH_ACCELERATOR_2, new CustomItemStack(CultivationStacks.GARDEN_CLOCHE),
+            new CustomItemStack(CultivationStacks.GARDEN_CLOCHE), SlimefunItems.PROGRAMMABLE_ANDROID_3, new CustomItemStack(CultivationStacks.GARDEN_CLOCHE)
+        }
+    );
+
+    public static final BonsaiPot BONSAI_POT = new BonsaiPot(
+        CultivationGroups.MACHINES,
+        CultivationStacks.BONSAI_POT,
+        RecipeType.ENHANCED_CRAFTING_TABLE,
+        new ItemStack[]{
+            new CustomItemStack(CultivationStacks.CROP_STICKS), new CustomItemStack(CultivationStacks.CROP_STICKS), new CustomItemStack(CultivationStacks.CROP_STICKS),
+            new CustomItemStack(CultivationStacks.CROP_STICKS), SlimefunItems.COMPOSTER, new CustomItemStack(CultivationStacks.CROP_STICKS),
+            new CustomItemStack(CultivationStacks.CROP_STICKS), new CustomItemStack(CultivationStacks.CROP_STICKS), new CustomItemStack(CultivationStacks.CROP_STICKS)
         }
     );
 
@@ -126,7 +151,7 @@ public final class Machines {
             new ItemStack(Material.DARK_OAK_LOG), SlimefunItems.CARBONADO_EDGED_FURNACE, new ItemStack(Material.DARK_OAK_LOG)
         },
         DisplayGroupGenerators::generateOvenCounter,
-        200
+        2000
     );
 
     public static final PoweredKitchenMachineSimple COUNTER_FRYER = new PoweredKitchenMachineSimple(
@@ -139,7 +164,7 @@ public final class Machines {
             new ItemStack(Material.DARK_OAK_LOG), SlimefunItems.CARBONADO_EDGED_FURNACE, new ItemStack(Material.DARK_OAK_LOG)
         },
         DisplayGroupGenerators::generateFryingCounter,
-        100
+        1000
     );
 
     public static final PoweredKitchenMachineSimple COUNTER_GRILL = new PoweredKitchenMachineSimple(
@@ -152,7 +177,7 @@ public final class Machines {
             new ItemStack(Material.DARK_OAK_LOG), SlimefunItems.ELECTRIC_MOTOR, new ItemStack(Material.DARK_OAK_LOG)
         },
         DisplayGroupGenerators::generateGrillingCounter,
-        150
+        1500
     );
 
     public static final CraftingKitchenMachine COUNTER_FINISHING = new CraftingKitchenMachine(
@@ -169,6 +194,8 @@ public final class Machines {
 
     public static void setup(Cultivation addon) {
         GARDEN_CLOCHE.register(addon);
+        ULTRA_CLOCHE.register(addon);
+        BONSAI_POT.register(addon);
         COUNTER_NOTHING.register(addon);
         COUNTER_CHOPPING.register(addon);
         COUNTER_BLENDER.register(addon);

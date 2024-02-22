@@ -29,3 +29,6 @@ permissions:
   cultivation.admin.structures:
     description: Allows the user to manage Cultivation Structures
     default: op
+  cultivation.admin.giveplant:
+    description: Allows the user to generate a leveled plant
+    default: op

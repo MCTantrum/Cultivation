@@ -27,7 +27,7 @@ public final class Plants {
         new NothingPlant(
             CultivationStacks.PLANT_DARKNESS,
             RecipeTypes.MOB,
-            RecipeTypes.createMobDropRecipe(CultivationStacks.PLANT_DARKNESS, EntityDefinitions.getHostileMobs(), 0.05),
+            RecipeTypes.createMobDropRecipe(CultivationStacks.PLANT_DARKNESS, EntityDefinitions.getHostileMobs(), 0.01),
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
@@ -38,7 +38,7 @@ public final class Plants {
         new NothingPlant(
             CultivationStacks.PLANT_LIGHT,
             RecipeTypes.MOB,
-            RecipeTypes.createMobDropRecipe(CultivationStacks.PLANT_LIGHT, EntityDefinitions.getPassiveMobs(), 0.05),
+            RecipeTypes.createMobDropRecipe(CultivationStacks.PLANT_LIGHT, EntityDefinitions.getPassiveMobs(), 0.01),
             new Growth(
                 PlantTheme.YELLOW,
                 CommonPlacements.COMMON_OVERWORLD,
@@ -49,7 +49,7 @@ public final class Plants {
         new NothingPlant(
             CultivationStacks.PLANT_EARTH,
             RecipeTypes.VANILLA_DROP,
-            RecipeTypes.createBlockDropRecipe(CultivationStacks.PLANT_EARTH, SlimefunTag.ORES.getValues(), 0.05),
+            RecipeTypes.createBlockDropRecipe(CultivationStacks.PLANT_EARTH, SlimefunTag.ORES.getValues(), 0.01),
             new Growth(
                 PlantTheme.GREEN,
                 CommonPlacements.COMMON_OVERWORLD,
@@ -63,7 +63,7 @@ public final class Plants {
             RecipeTypes.createBucketingRecipe(
                 CultivationStacks.PLANT_WATER,
                 Set.of(Material.WATER, Material.POWDER_SNOW),
-                0.05
+                0.01
             ),
             new Growth(
                 PlantTheme.BLUE,
@@ -75,7 +75,7 @@ public final class Plants {
         new NothingPlant(
             CultivationStacks.PLANT_FIRE,
             RecipeTypes.BUCKETING,
-            RecipeTypes.createBucketingRecipe(CultivationStacks.PLANT_FIRE, Material.LAVA, 0.05),
+            RecipeTypes.createBucketingRecipe(CultivationStacks.PLANT_FIRE, Material.LAVA, 0.01),
             new Growth(
                 PlantTheme.RED,
                 CommonPlacements.COMMON_OVERWORLD,
@@ -86,7 +86,7 @@ public final class Plants {
         new NothingPlant(
             CultivationStacks.PLANT_AIR,
             RecipeTypes.MOB,
-            RecipeTypes.createMobDropRecipe(CultivationStacks.PLANT_AIR, EntityDefinitions.getFlyingMobs(), 0.05),
+            RecipeTypes.createMobDropRecipe(CultivationStacks.PLANT_AIR, EntityDefinitions.getFlyingMobs(), 0.01),
             new Growth(
                 PlantTheme.CYAN,
                 CommonPlacements.COMMON_OVERWORLD,
@@ -115,8 +115,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_VILLAGER.getItemId(),
             CultivationStacks.PLANT_VILLAGER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new NothingPlant(
@@ -129,8 +129,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DARKNESS.getItemId(),
             CultivationStacks.PLANT_LIGHT.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -144,8 +144,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_EARTH.getItemId(),
             CultivationStacks.PLANT_WATER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -159,8 +159,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DIRT.getItemId(),
             CultivationStacks.PLANT_WATER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -186,8 +186,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_GRASS.getItemId(),
             CultivationStacks.PLANT_WATER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -201,8 +201,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DIRT.getItemId(),
             CultivationStacks.PLANT_FLOWER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -216,8 +216,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DIRT.getItemId(),
             CultivationStacks.PLANT_EARTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -231,8 +231,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_SAND.getItemId(),
             CultivationStacks.PLANT_EARTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -246,8 +246,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_GRASS.getItemId(),
             CultivationStacks.PLANT_COBBLESTONE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -264,11 +264,12 @@ public final class Plants {
         ).addHarvestingResult(new ItemStack(Material.OAK_SAPLING)
         ).addHarvestingResult(new ItemStack(Material.SPRUCE_SAPLING)
         ).addHarvestingResult(new ItemStack(Material.MANGROVE_PROPAGULE)
+        ).addHarvestingResult(new ItemStack(Material.CHERRY_SAPLING)
         ).addBreedingPair(
             CultivationStacks.PLANT_DIRT.getItemId(),
             CultivationStacks.PLANT_LIGHT.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -286,8 +287,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_FLOWER.getItemId(),
             CultivationStacks.PLANT_SLIME.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -301,8 +302,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_FLOWER.getItemId(),
             CultivationStacks.PLANT_WITHER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -317,8 +318,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_VINE.getItemId(),
             CultivationStacks.PLANT_NETHERRACK.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -332,8 +333,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_VINE.getItemId(),
             CultivationStacks.PLANT_LIGHT.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -349,8 +350,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_FROG.getItemId(),
             CultivationStacks.PLANT_LIGHT.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -365,8 +366,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_GRASS.getItemId(),
             CultivationStacks.PLANT_LIGHT.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -382,8 +383,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_AIR.getItemId(),
             CultivationStacks.PLANT_LIGHT.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -400,8 +401,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_WATER.getItemId(),
             CultivationStacks.PLANT_LIGHT.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -411,14 +412,13 @@ public final class Plants {
                 CommonPlacements.COMMON_OVERWORLD,
                 GrowthRates.GROWTH_RATE_UNCOMMON
             )
-        ).addHarvestingResult(new ItemStack(Material.SCUTE), 5
         ).addHarvestingResult(new ItemStack(Material.SEAGRASS, 5), 7
         ).addHarvestingResult(new ItemStack(Material.TURTLE_EGG), 1
         ).addBreedingPair(
             CultivationStacks.PLANT_CHICKEN.getItemId(),
             CultivationStacks.PLANT_WATER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -432,8 +432,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_ZOMBIE.getItemId(),
             CultivationStacks.PLANT_LIGHT.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -449,8 +449,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_CHICKEN.getItemId(),
             CultivationStacks.PLANT_EARTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -465,8 +465,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_COW.getItemId(),
             CultivationStacks.PLANT_CHICKEN.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -480,8 +480,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_COW.getItemId(),
             CultivationStacks.PLANT_SHEEP.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -496,8 +496,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_COW.getItemId(),
             CultivationStacks.PLANT_SHEEP.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -511,8 +511,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_FISH.getItemId(),
             CultivationStacks.PLANT_COW.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -526,8 +526,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_SQUID.getItemId(),
             CultivationStacks.PLANT_LIGHT.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -541,8 +541,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_SQUID.getItemId(),
             CultivationStacks.PLANT_BEE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -556,8 +556,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_SHEEP.getItemId(),
             CultivationStacks.PLANT_POWER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -586,8 +586,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_SPECTRUM.getItemId(),
             CultivationStacks.PLANT_SPECTRUM.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -616,8 +616,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_RAINBOW.getItemId(),
             CultivationStacks.PLANT_BEE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -646,8 +646,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_RAINBOW.getItemId(),
             CultivationStacks.PLANT_SHEEP.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -676,8 +676,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_RAINBOW.getItemId(),
             CultivationStacks.PLANT_EARTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -706,8 +706,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_TERRA.getItemId(),
             CultivationStacks.PLANT_FIRE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -736,8 +736,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_TERRA.getItemId(),
             CultivationStacks.PLANT_SAND.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -766,8 +766,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DUSTY.getItemId(),
             CultivationStacks.PLANT_WATER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -796,10 +796,10 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_GLASS.getItemId(),
             CultivationStacks.PLANT_RAINBOW.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
-        
+
         new HarvestablePlant(
             CultivationStacks.PLANT_COBBLESTONE,
             new Growth(
@@ -811,10 +811,10 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_FIRE.getItemId(),
             CultivationStacks.PLANT_WATER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
-        
+
         new HarvestablePlant(
             CultivationStacks.PLANT_GRAVEL,
             new Growth(
@@ -826,10 +826,10 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_COBBLESTONE.getItemId(),
             CultivationStacks.PLANT_EARTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
-        
+
         new HarvestablePlant(
             CultivationStacks.PLANT_CLAY,
             new Growth(
@@ -841,10 +841,10 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_GRAVEL.getItemId(),
             CultivationStacks.PLANT_WATER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
-        
+
         new HarvestablePlant(
             CultivationStacks.PLANT_IGNEOUS,
             new Growth(
@@ -861,8 +861,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_COBBLESTONE.getItemId(),
             CultivationStacks.PLANT_FIRE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -876,8 +876,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_COBBLESTONE.getItemId(),
             CultivationStacks.PLANT_EARTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -891,8 +891,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DEEPSLATE.getItemId(),
             CultivationStacks.PLANT_SCRAPPY.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -906,8 +906,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_IGNEOUS.getItemId(),
             CultivationStacks.PLANT_FIRE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -921,8 +921,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DIRT.getItemId(),
             CultivationStacks.PLANT_FIRE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -937,8 +937,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_NETHERRACK.getItemId(),
             CultivationStacks.PLANT_GRASS.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -952,8 +952,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_MAGMA_CUBE.getItemId(),
             CultivationStacks.PLANT_NETHERRACK.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -969,8 +969,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_SAND.getItemId(),
             CultivationStacks.PLANT_NETHERRACK.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -984,8 +984,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_NETHERRACK.getItemId(),
             CultivationStacks.PLANT_COBBLESTONE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -999,8 +999,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_SAND.getItemId(),
             CultivationStacks.PLANT_FIRE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1014,8 +1014,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DIRT.getItemId(),
             CultivationStacks.PLANT_DARKNESS.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1029,8 +1029,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_COBBLESTONE.getItemId(),
             CultivationStacks.PLANT_ENDERMAN.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1044,8 +1044,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_END_STONE.getItemId(),
             CultivationStacks.PLANT_SHULKER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1059,8 +1059,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_FIRE.getItemId(),
             CultivationStacks.PLANT_EARTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1074,8 +1074,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_COAL.getItemId(),
             CultivationStacks.PLANT_EARTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1089,8 +1089,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_COAL.getItemId(),
             CultivationStacks.PLANT_EARTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1104,8 +1104,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_RAW_IRON.getItemId(),
             CultivationStacks.PLANT_RAW_COPPER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1119,8 +1119,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_RAW_GOLD.getItemId(),
             CultivationStacks.PLANT_FLOWER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1134,8 +1134,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_REDSTONE.getItemId(),
             CultivationStacks.PLANT_RAW_GOLD.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1149,8 +1149,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_LAPIS.getItemId(),
             CultivationStacks.PLANT_WEALTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1164,8 +1164,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_VILLAGER.getItemId(),
             CultivationStacks.PLANT_WEALTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1179,8 +1179,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_LAPIS.getItemId(),
             CultivationStacks.PLANT_DARKNESS.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1194,8 +1194,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_NETHER_QUARTZ.getItemId(),
             CultivationStacks.PLANT_POWER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1209,8 +1209,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_EARTH.getItemId(),
             CultivationStacks.PLANT_SPECTRUM.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1224,8 +1224,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_AMETHYST.getItemId(),
             CultivationStacks.PLANT_EMERALD.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1241,8 +1241,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DARKNESS.getItemId(),
             CultivationStacks.PLANT_AIR.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1258,8 +1258,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DARKNESS.getItemId(),
             CultivationStacks.PLANT_DARKNESS.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1274,8 +1274,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DARKNESS.getItemId(),
             CultivationStacks.PLANT_FIRE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1290,8 +1290,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DARKNESS.getItemId(),
             CultivationStacks.PLANT_EARTH.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1307,8 +1307,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_ZOMBIE.getItemId(),
             CultivationStacks.PLANT_WATER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1323,8 +1323,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_DROWNED.getItemId(),
             CultivationStacks.PLANT_TURTLE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1340,8 +1340,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_GUARDIAN.getItemId(),
             CultivationStacks.PLANT_POWER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1355,8 +1355,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_BLAZE.getItemId(),
             CultivationStacks.PLANT_MAGMA_CUBE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1370,8 +1370,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_PIG.getItemId(),
             CultivationStacks.PLANT_SQUID.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1385,8 +1385,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_SLIME.getItemId(),
             CultivationStacks.PLANT_FIRE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1401,8 +1401,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_CREEPER.getItemId(),
             CultivationStacks.PLANT_PHANTOM.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1417,8 +1417,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_SKELETON.getItemId(),
             CultivationStacks.PLANT_POWER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1432,8 +1432,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_WITHER_SKELETON.getItemId(),
             CultivationStacks.PLANT_POWER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1447,8 +1447,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_SPIDER.getItemId(),
             CultivationStacks.PLANT_CHICKEN.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1462,8 +1462,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_ENDERMAN.getItemId(),
             CultivationStacks.PLANT_TURTLE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1478,8 +1478,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_PHANTOM.getItemId(),
             CultivationStacks.PLANT_DARKNESS.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1495,8 +1495,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_ENDERMAN.getItemId(),
             CultivationStacks.PLANT_POWER.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
 
         new HarvestablePlant(
@@ -1511,8 +1511,8 @@ public final class Plants {
         ).addBreedingPair(
             CultivationStacks.PLANT_VILLAGER.getItemId(),
             CultivationStacks.PLANT_FIRE.getItemId(),
-            0.05,
-            0.10
+            0.01,
+            0.02
         ).tryRegister(addon);
     }
 }

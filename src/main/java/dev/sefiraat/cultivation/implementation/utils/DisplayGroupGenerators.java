@@ -483,6 +483,134 @@ public final class DisplayGroupGenerators {
                 .setText(name)
                 .build(displayGroup)
         );
+
+
+    }
+
+    /**
+     *      MCT Specific
+     */
+
+    public static DisplayGroup generateUltraCloche(@Nonnull Location location) {
+        final DisplayGroup displayGroup = new DisplayGroup(location, 1.25f, 0.5f);
+        displayGroup.addDisplay(
+            "ultra_cloche_base",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.25, 0))
+                .setItemStack(new ItemStack(Material.PURPLE_CONCRETE_POWDER))
+                .setTransformation(Transformations.ULTRA_CLOCHE_BASE.getTransformation())
+                .build(displayGroup)
+        );
+        displayGroup.addDisplay(
+            "ultra_cloche_glass",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.75, 0))
+                .setItemStack(new ItemStack(Material.TINTED_GLASS))
+                .setTransformation(Transformations.ULTRA_CLOCHE_GLASS.getTransformation())
+                .build(displayGroup)
+        );
+        displayGroup.addDisplay(
+            "ultra_cloche_dirt",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.38, 0))
+                .setItemStack(new ItemStack(Material.FARMLAND))
+                .setTransformation(Transformations.ULTRA_CLOCHE_DIRT.getTransformation())
+                .build(displayGroup)
+        );
+        return displayGroup;
+    }
+
+    public static void addPlantToUltraCloche(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.addDisplay(
+            "plant",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.8, 0))
+                .setTransformation(Transformations.ULTRA_CLOCHE_GLASS.getTransformation())
+                .setItemStack(new ItemStack(Material.SMALL_DRIPLEAF))
+                .build(displayGroup)
+        );
+    }
+
+    public static DisplayGroup generateBonsaiPot(@Nonnull Location location) {
+        final DisplayGroup displayGroup = new DisplayGroup(location, 1.01f, 1.f);
+        displayGroup.addDisplay(
+            "bonsai_base",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.1, 0))
+                .setItemStack(new ItemStack(Material.COMPOSTER))
+                .setTransformation(Transformations.BONSAI_POT_BASE.getTransformation())
+                .build(displayGroup)
+        );
+        return displayGroup;
+    }
+
+    public static void addDirtToBonsaiPot(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.addDisplay(
+            "dirt",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.05, 0))
+                .setItemStack(new ItemStack(Material.DIRT))
+                .setTransformation(Transformations.BONSAI_POT_DIRT.getTransformation())
+                .build(displayGroup)
+        );
+    }
+
+    public static void addFertilizedDirtToBonsaiPot(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.addDisplay(
+            "fertilized_dirt",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.05, 0))
+                .setItemStack(new ItemStack(Material.ROOTED_DIRT))
+                .setTransformation(Transformations.BONSAI_POT_FERTILIZED_DIRT.getTransformation())
+                .build(displayGroup)
+        );
+    }
+
+    public static void addSuperDirtToBonsaiPot(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.addDisplay(
+            "super_dirt",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.05, 0))
+                .setItemStack(new ItemStack(Material.PODZOL))
+                .setTransformation(Transformations.BONSAI_POT_SUPER_DIRT.getTransformation())
+                .build(displayGroup)
+        );
+    }
+
+    public static void addTreeToBonsaiPot(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.addDisplay(
+            "tree",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.4, 0))
+                .setTransformation(Transformations.BONSAI_POT_TREE.getTransformation())
+                .setItemStack(new ItemStack(Material.SPRUCE_SAPLING))
+                .build(displayGroup)
+        );
+        displayGroup.addDisplay(
+            "tree_x",
+            new ItemDisplayBuilder()
+                .setGroupParentOffset(new Vector(0, 0.4, 0))
+                .setTransformation(Transformations.BONSAI_POT_TREE_TURNED.getTransformation())
+                .setItemStack(new ItemStack(Material.SPRUCE_SAPLING))
+                .build(displayGroup)
+        );
+    }
+
+    public static void removeTreeFromBonsaiPot(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.killDisplay("tree");
+        displayGroup.killDisplay("tree_x");
+    }
+
+    public static void removeDirtFromBonsaiPot(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.killDisplay("dirt");
+    }
+
+    public static void removeFertilizedDirtFromBonsaiPot(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.killDisplay("fertilized_dirt");
+    }
+
+    public static void removeSuperDirtFromBonsaiPot(@Nonnull DisplayGroup displayGroup) {
+        displayGroup.killDisplay("super_dirt");
     }
 
     public static void removeNameFromGroup(@Nonnull DisplayGroup displayGroup) {

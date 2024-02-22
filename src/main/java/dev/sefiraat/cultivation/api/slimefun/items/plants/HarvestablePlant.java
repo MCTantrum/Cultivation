@@ -45,7 +45,7 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
     @ParametersAreNonnullByDefault
     public HarvestablePlant(SlimefunItemStack item, Growth growth) {
         super(item, growth);
-        addItemSetting(new DoubleRangeSetting(this, KEY_GROWTH_RATE, 0.001, growth.getGrowthRate(), 1D));
+        addItemSetting(new DoubleRangeSetting(this, KEY_GROWTH_RATE, 0.00001, growth.getGrowthRate(), 1D));
         Optional<ItemSetting<Double>> doubleOptional = getItemSetting(KEY_GROWTH_RATE, double.class);
         doubleOptional.ifPresent(doubleItemSetting -> this.growth.setGrowthRate(doubleItemSetting.getValue()));
     }

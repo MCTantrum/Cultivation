@@ -2114,7 +2114,26 @@ public final class CultivationStacks {
         "Garden Cloche",
         "Grows plants inside it automatically.",
         "",
-        Theme.CLICK_INFO.asTitle("Power per Tick", 100)
+        Theme.CLICK_INFO.asTitle("Power per Tick", 1000)
+    );
+
+    public static final SlimefunItemStack ULTRA_CLOCHE = Theme.themedSlimefunItemStack(
+        "CLT_ULTRA_CLOCHE",
+        Material.PURPLE_CONCRETE_POWDER,
+        CultivationThemes.MACHINE,
+        "Ultra Cloche",
+        "Buncha' Cloches compressed into one.",
+        "",
+        Theme.CLICK_INFO.asTitle("Requires", "Cod Rank"),
+        Theme.CLICK_INFO.asTitle("Power per Tick", 12000)
+    );
+
+    public static final SlimefunItemStack BONSAI_POT = Theme.themedSlimefunItemStack(
+        "CLT_BONSAI_POT",
+        Material.FLOWER_POT,
+        CultivationThemes.MACHINE,
+        "Bonsai Pot",
+        "A self-cultivating tree pot."
     );
 
     public static final SlimefunItemStack COUNTER_NOTHING = Theme.themedSlimefunItemStack(
