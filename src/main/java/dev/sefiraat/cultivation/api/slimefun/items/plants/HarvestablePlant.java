@@ -6,11 +6,13 @@ import dev.sefiraat.cultivation.api.interfaces.CultivationHarvestable;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.HarvestingTool;
+import dev.sefiraat.cultivation.implementation.slimefun.tools.PlantAnalyser;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import io.github.bakedlibs.dough.collections.RandomizedSet;
 import io.github.bakedlibs.dough.skins.PlayerHead;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemSetting;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.items.settings.DoubleRangeSetting;
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting;
@@ -79,6 +81,10 @@ public class HarvestablePlant extends CultivationPlant implements CultivationHar
     @Override
     protected void onBlockUse(@NotNull PlayerRightClickEvent event) {
         // shouldn't be possible, but just to be safe
+        SlimefunItem handItem = SlimefunItem.getByItem(event.getPlayer().getInventory().getItemInMainHand());
+        if (handItem instanceof PlantAnalyser) {
+            return;
+        }
         Optional<Block> blockOptional = event.getClickedBlock();
         if (blockOptional.isEmpty() || harvestItems.size() == 0) {
             return;
